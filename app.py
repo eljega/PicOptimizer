@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, send_file
 from PIL import Image
 import io
 import base64
+import os
 
 app = Flask(__name__)
 
