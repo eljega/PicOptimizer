@@ -46,6 +46,5 @@ def upload_and_process_image():
 
     return render_template('upload.html', original_image=original_image, processed_image=processed_image, processed_format=processed_format, download_url=download_url)
 
-port = int(os.environ.get('PORT', 8080))
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=port, debug=os.environ.get('DEBUG', False))
+    app.run(debug=True)
