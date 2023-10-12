@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subir y Procesar Imagen</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Subir y Procesar Imagen</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <label>Formato de salida:</label>
+            <select name="output_format">
+                <option value="jpeg">JPEG</option>
+                <option value="png">PNG</option>
+                <option value="webp">WebP</option>
+            </select>
+            <label>Calidad (0-100):</label>
+            <input type="number" name="quality" min="0" max="100" value="70">
+            <input type="submit" class="convert-button" value="Convertir">
+            <a href="{{ download_url }}" download class="download-button">Descargar</a>
+        </form>
+
+        {% if original_image %}
+        <div class="image-container">
+            <h2>Imagen Original:</h2>
+            <img src="data:image/png;base64,{{ original_image }}" alt="Imagen Original">
+        </div>
+        <div class="image-container">
+            <h2>Imagen Convertida:</h2>
+            <img src="{{ download_url }}" alt="Imagen Convertida">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
