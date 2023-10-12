@@ -21,7 +21,7 @@
             <a href="{{ download_url }}" download class="download-button">Descargar</a>
         </form>
 
-        {% if original_image %}
+        
         <div class="image-container">
             <h2>Imagen Original:</h2>
             <img src="data:image/png;base64,{{ original_image }}" alt="Imagen Original">
@@ -30,7 +30,7 @@
             <h2>Imagen Convertida:</h2>
             <img src="{{ download_url }}" alt="Imagen Convertida">
         </div>
-        {% endif %}
+        
     </div>
 </body>
 </html>
