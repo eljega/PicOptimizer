@@ -3,7 +3,7 @@ from PIL import Image
 import io
 import base64
 import os
-from rembg.cli import main
+
 
 
 app = Flask(__name__)
@@ -48,5 +48,6 @@ def upload_and_process_image():
 
     return render_template('upload.html', original_image=original_image, processed_image=processed_image, processed_format=processed_format, download_url=download_url)
 
-if __name__ == "__main__":
-    main()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)
