@@ -6,34 +6,74 @@
 </head>
 <body>
     <div class="container">
-        <h1>Subir y Procesar Imagen</h1>
-        <form method="POST" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <label>Formato de salida:</label>
-            <select name="output_format">
-                <option value="jpeg">JPEG</option>
-                <option value="png">PNG</option>
-                <option value="webp">WebP</option>
-            </select>
-            <label>Calidad (0-100):</label>
-            <input type="number" name="quality" min="0" max="100" value="70">
-            <input type="submit" class="convert-button" value="Convertir">
-            <a href="{{ download_url }}" download class="download-button">Descargar</a>
-        </form>
-
+        <div class="header">
+            <h1>Subir y Procesar Imagen</h1>
+        </div>
+        <div class="content">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="upload-container">
+                    <label for="file" class="file-label">Selecciona una imagen</label>
+                    <input type="file" name="file" id="file" class="file-input">
+                </div>
+                
+                <div class="options-container">
+                    <div class="select-container">
+                        <label for="output_format">Formato de salida:</label>
+                        <select name="output_format" id="output_format" class="select-input">
+                            <option value="jpeg">JPEG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WebP</option>
+                        </select>
+                    </div>
+                    <div class="quality-container">
+                        <label for="quality">Calidad (0-100):</label>
+                        <input type="number" name="quality" id="quality" class="number-input" min="0" max="100" value="70">
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="convert-button">Convertir</button>
+                        <a href="{{ download_url }}" download class="download-button">Descargar</a>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+        <div class="preview-image-container hidden">
+            <img id="preview-image">
+        </div>
         
         {% if original_image %}
-        <div class="image-container">
-            <h2>Imagen Original:</h2>
-            <img src="data:image/png;base64,{{ original_image }}" alt="Imagen Original">
-        </div>
-        <div class="image-container">
-            <h2>Imagen Convertida:</h2>
-            <img src="{{ download_url }}" alt="Imagen Convertida">
+        
+        <div class="image-preview">
+            <div class="original-image">
+                <h2>Imagen Original:</h2>
+                <img src="data:image/png;base64,{{ original_image }}" alt="Imagen Original">
+                <p>Tamaño: {{ original_size }} bytes</p>
+            </div>
+            <div class="converted-image">
+                <h2>Imagen Convertida:</h2>
+                <img src="{{ download_url }}" alt="Imagen Convertida">
+                <p>Tamaño: {{ converted_size }} bytes</p>
+            </div>
         </div>
         {% endif %}
-        
     </div>
 </body>
+<script>
+    document.getElementById("file").addEventListener("change", function() {
+        var previewImage = document.getElementById("preview-image");
+        var previewContainer = document.querySelector(".preview-image-container");
+        var fileInput = this;
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+                previewContainer.classList.remove("hidden");
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            previewImage.src = "";
+            previewContainer.classList.add("hidden");
+        }
+    });
+</script>
 </html>
-
