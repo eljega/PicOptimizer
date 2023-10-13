@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,88 +7,136 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 800px;
-    padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 15px;
     text-align: center;
+    max-width: 800px;
+}
+
+.header {
+    background-color: #007bff;
+    color: white;
+    border-radius: 15px 15px 0 0;
+    padding: 20px;
+    border-bottom: 2px solid #0056b3;
 }
 
 h1 {
-    color: #333;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-/* Estilos para el formulario */
-form {
-    background-color: #eee;
-    padding: 20px;
+.file-label {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
-input[type="file"],
-select,
-input[type="number"] {
-    display: block;
+.file-input {
+    display: none;
+}
+
+.file-label:hover {
+    background-color: #003c7a;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select-container, .quality-container {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
+}
+
+.select-input, .number-input {
     padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.convert-button,
+.download-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; /* Espacio entre los botones */
+    transition: background 0.3s ease-in-out;
+}
+
+.download-button {
+    text-decoration: none; /* Elimina la línea subrayada */
+}
+
+.convert-button:hover,
+.download-button:hover {
+    background-color: #0056b3;
+}
+
+
+.image-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     width: 100%;
 }
 
-input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+.original-image, .converted-image {
+    padding: 20px;
 }
 
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* Estilos para la imagen procesada */
 img {
-    max-width: 30%;
+    max-width: 100%;
     height: auto;
     border: 1px solid #ccc;
     border-radius: 5px;
-    display: inline-block; /* Agregar esta línea */
 }
 
-.image-container {
-    /* Elimina la propiedad display: inline-block; de este selector */
-    margin-right: 20px; /* Ajusta el espacio entre las imágenes */
+
+.preview-image-container {
+    margin: 20px 0;
 }
 
-/* Estilos para el botón de Convertir */
-.convert-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+#preview-image {
+    max-width: 30%;
 }
 
-.convert-button:hover {
-    background-color: #0056b3;
-}
-
-/* Estilos para el botón de Descargar */
-.download-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+.hidden {
+    display: none;
 }
 
 .download-button:hover {
