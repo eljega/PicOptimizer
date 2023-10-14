@@ -7,7 +7,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 65vh;
 }
 
 .container {
@@ -19,12 +19,26 @@ body {
 }
 
 .header {
-    background-color: #007bff;
+    background: linear-gradient(0deg, #A47CF3, #683FEA);
     color: white;
     border-radius: 15px 15px 0 0;
     padding: 20px;
-    border-bottom: 2px solid #0056b3;
+    border-bottom: 2px solid #9917FF;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
+
+
+
 
 h1 {
     margin: 0;
@@ -44,22 +58,13 @@ h1 {
     margin-bottom: 20px;
 }
 
-.file-label {
-    background-color: #0056b3;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-}
+
 
 .file-input {
     display: none;
 }
 
-.file-label:hover {
-    background-color: #003c7a;
-}
+
 
 .options-container {
     display: flex;
@@ -71,13 +76,28 @@ h1 {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: medium;
+
+    background: linear-gradient(0deg, #50d8ff, #5e60ce);
+    border: 1px solid #5e60ce;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-in-out;
+
 }
 
 .select-input, .number-input {
     padding: 5px;
-    border: 1px solid #ccc;
     border-radius: 5px;
     width: 100px;
+    border: 1px solid #5e60ce;
+    font-weight: 600;
+    font-size: small;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(0, 0, 0);
 }
 
 .button-container {
@@ -85,17 +105,7 @@ h1 {
     align-items: center;
 }
 
-.convert-button,
-.download-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px; /* Espacio entre los botones */
-    transition: background 0.3s ease-in-out;
-}
+
 
 .download-button {
     text-decoration: none; /* Elimina la línea subrayada */
@@ -124,6 +134,7 @@ img {
     height: auto;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-left: -40px;
 }
 
 
@@ -139,7 +150,206 @@ img {
     display: none;
 }
 
-.download-button:hover {
-    background-color: #0056b3;
-}
 
+
+
+/*boton de convertir*/
+.btn {
+    border: none;
+    width: 11em;
+    height: 3em;
+    border-radius: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #1C1A1C;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+    margin-right: 20px;
+  }
+  
+  .sparkle {
+    fill: #AAAAAA;
+    transition: all 800ms ease;
+  }
+  
+  .text {
+    font-weight: 600;
+    color: #AAAAAA;
+    font-size: medium;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(0deg,#A47CF3,#683FEA);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+    0px 0px 180px 0px #9917FF;
+    transform: translateY(-2px);
+  }
+  
+  .btn:hover .text {
+    color: white;
+  }
+  
+  .btn:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+  } 
+
+
+
+  /*boton de descargar*/
+
+  .BtnDW {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.11);
+  }
+  
+  .svgIcon {
+    fill: rgb(214, 178, 255);
+  }
+  
+  .icon2 {
+    width: 18px;
+    height: 5px;
+    border-bottom: 2px solid rgb(182, 143, 255);
+    border-left: 2px solid rgb(182, 143, 255);
+    border-right: 2px solid rgb(182, 143, 255);
+  }
+  
+  .tooltip {
+    position: absolute;
+    right: -105px;
+    opacity: 0;
+    background-color: rgb(12, 12, 12);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: .2s;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+  }
+  
+  .tooltip::before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: rgb(12, 12, 12);
+    background-size: 1000%;
+    background-position: center;
+    transform: rotate(45deg);
+    left: -5%;
+    transition-duration: .3s;
+  }
+  
+  .BtnDW:hover .tooltip {
+    opacity: 1;
+    transition-duration: .3s;
+  }
+  
+  .BtnDW:hover {
+    background-color: rgb(150, 94, 255);
+    transition-duration: .3s;
+  }
+  
+  .BtnDW:hover .icon2 {
+    border-bottom: 2px solid rgb(235, 235, 235);
+    border-left: 2px solid rgb(235, 235, 235);
+    border-right: 2px solid rgb(235, 235, 235);
+  }
+  
+  .BtnDW:hover .svgIcon {
+    fill: rgb(255, 255, 255);
+    animation: slide-in-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+
+  /*seleccionar un archivo boton*/
+
+  .button {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #A47CF3;
+    background-color: #8b69ce;
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button .button__text {
+    transform: translateX(10px);
+    color: #fff;
+    font-weight: 600;
+    font-size: small;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 105%;
+    width: 40px;
+    background-color: #A47CF3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .button:hover {
+    background: #9917FF;
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button:active .button__icon {
+    background-color: #6a11ae;
+  }
+  
+  .button:active {
+    border: 1px solid #9917FF;
+  }
