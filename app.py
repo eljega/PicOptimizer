@@ -17,6 +17,8 @@ def upload_and_process_image():
     processed_image = None
     processed_format = None
     download_url = None
+    original_size = None
+    converted_size = None
 
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -24,8 +26,7 @@ def upload_and_process_image():
 
         file = request.files['file']
 
-        if file.filename == '':
-            return "No selected file"
+        
 
         if file:
             # Cargar la imagen original inmediatamente al recibirla
@@ -55,10 +56,14 @@ def upload_and_process_image():
             processed_image = base64.b64encode(output_buffer.getvalue()).decode()
             processed_format = output_format
 
+            # Calcular tamaños de las imágenes
+            original_size = original_buffer.tell()
+            converted_size = output_buffer.tell()
+
             # Generar un enlace de descarga
             download_url = f"data:image/{output_format};base64,{processed_image}"
 
-    return render_template('upload.html', original_image=original_image, processed_image=processed_image, processed_format=processed_format, download_url=download_url)
+    return render_template('upload.html', original_image=original_image, processed_image=processed_image, processed_format=processed_format, download_url=download_url, original_size=original_size, converted_size=converted_size)
 
 
 port = int(os.environ.get('PORT', 8080))
