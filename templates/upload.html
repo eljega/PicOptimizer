@@ -80,6 +80,9 @@
     </div>
 </body>
 <script>
+    // Agrega el valor de output_format como una variable JavaScript
+    var outputFormat = "{{ output_format }}";
+
     document.getElementById("file").addEventListener("change", function() {
         var previewImage = document.getElementById("preview-image");
         var previewContainer = document.querySelector(".preview-image-container");
@@ -98,19 +101,20 @@
     });
 
     document.getElementById("download-button").addEventListener("click", function(e) {
-    e.preventDefault(); // Evita la acción predeterminada del botón
-    // Simular un enlace de descarga
-    var downloadLink = document.createElement("a");
-    downloadLink.href = "{{ download_url }}";
-    downloadLink.download = "imagen_procesada.png"; // Nombre de archivo para descarga
-    downloadLink.style.display = "none";
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-});
+        e.preventDefault(); // Evita la acción predeterminada del botón
+
+        // Simular un enlace de descarga
+        var downloadLink = document.createElement("a");
+        downloadLink.href = "{{ download_url }}";
+        downloadLink.download = `imagen_procesada.${outputFormat}`; // Nombre de archivo para descarga
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    });
 
     document.getElementById("add-item-button").addEventListener("click", function () {
-    document.getElementById("file").click(); // Simula un clic en el elemento de entrada de archivo
-});
+        document.getElementById("file").click(); // Simula un clic en el elemento de entrada de archivo
+    });
 </script>
 </html>
