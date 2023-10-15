@@ -1,6 +1,6 @@
 # PicOptimizer - Optimización de Imágenes en Línea
 
-![PicOptimizer Logo](/static/imagenes/logo.png)
+![PicOptimizer Logo](/static/imagenes/logo.webp)
 
 PicOptimizer es una aplicación web que te permite subir y procesar imágenes para cambiar su formato (PNG, JPEG, WebP) y ajustar la calidad. Esta herramienta es ideal para reducir el tamaño de tus imágenes y mejorar la eficiencia en línea.
 
