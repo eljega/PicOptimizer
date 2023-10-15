@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #10001c;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    background-color: #fff;
+    background-color: #22004f;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     text-align: center;
@@ -42,6 +42,10 @@ body {
 
 h1 {
     margin: 0;
+}
+
+h2, p {
+    color: #ffffff;
 }
 
 .content {
@@ -349,6 +353,96 @@ img {
   .button:active .button__icon {
     background-color: #6a11ae;
   }
+  
+  .button:active {
+    border: 1px solid #9917FF;
+  }
+
+
+
+  /* Estilos para la sección de redes sociales en la parte inferior izquierda */
+  .social-links {
+    position: fixed;
+    bottom: 0;
+    left: 20px; /* Ajusta el valor para separar los botones horizontalmente */
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.social-links .social-link {
+    margin-right: 10px; /* Espacio entre los botones */
+}
+
+.social-link img {
+    max-width: 30px;
+    height: auto;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: border-color 0.3s, transform 0.3s;
+    border-color: #ffffff;
+    margin-left: 10px;
+}
+
+
+.social-links img:hover {
+    border-color: #f1ca09; /* Cambio de color del borde al pasar el mouse (azul en este caso) */
+    transform: scale(1.1); /* Aumento del tamaño al pasar el mouse */
+}
+
+.copyright {
+    margin-top: 42px;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: -169px;
+}
+
+/*donaciones*/
+.donation-button {
+    position: fixed;
+    bottom: 43px;
+    right: 39px;
+    width: 148px;
+    height: 33px;
+    background-image: linear-gradient(0deg, #A47CF3, #683FEA);
+    border: none;
+    border-radius: 50px;
+    color: rgb(247 247 247);
+    margin-right: -6px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    box-shadow: 1px 3px 0px rgb(139, 113, 255);
+    transition-duration: .3s;
+    text-decoration: none;
+    text-align: center;
+    text-indent: 15px;
+ }
+ 
+ .donation-button .cartIcon {
+    width: 14px;
+    height: fit-content;
+ }
+ 
+ .donation-button {
+    fill: white;
+    margin-left: 10px;
+ }
+
+ .cartIcon path {
+    fill: rgba(255, 255, 255, 0);
+ }
+ 
+ .donation-button:active {
+    transform: translate(2px ,0px);
+    box-shadow: 0px 1px 0px rgb(139, 113, 255);
+    padding-bottom: 1px;
+ }
   
   .button:active {
     border: 1px solid #9917FF;
