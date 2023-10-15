@@ -10,15 +10,15 @@ A continuación, se muestran algunas capturas de pantalla de la aplicación:
 
 1. **Interfaz de Inicio:**
 
-   ![Inicio](/static/screenshots/inicio.png)
+   ![Inicio](/static/screenshots/inicio.webp)
 
 2. **Carga de Imagen:**
 
-   ![Carga de Imagen](/static/screenshots/carga-de-imagen.png)
+   ![Carga de Imagen](/static/screenshots/carga-de-imagen.webp)
 
 3. **Resultado de Conversión:**
 
-   ![Resultado de Conversión](/static/screenshots/resultado-de-conversion.png)
+   ![Resultado de Conversión](/static/screenshots/resultado-de-conversion.webp)
 
 ## Características Principales
 
