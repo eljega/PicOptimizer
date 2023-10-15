@@ -27,6 +27,11 @@ A continuación, se muestran algunas capturas de pantalla de la aplicación:
 - Visualiza la imagen original y la imagen convertida.
 - Descarga la imagen convertida en el formato seleccionado.
 
+## Actualizaciones futuras
+
+- Implementacion de eliminar fondo a las imágenes
+- Cambia el formato jpg o png a pdf
+
 ## Uso
 
 1. Abre la aplicación PicOptimizer en tu navegador web.
