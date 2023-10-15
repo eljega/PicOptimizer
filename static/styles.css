@@ -387,7 +387,7 @@ img {
 
 
 .social-links img:hover {
-    border-color: #f1ca09; /* Cambio de color del borde al pasar el mouse (azul en este caso) */
+    border-color: #6a11ae; /* Cambio de color del borde al pasar el mouse (morado en este caso) */
     transform: scale(1.1); /* Aumento del tamaño al pasar el mouse */
 }
 
