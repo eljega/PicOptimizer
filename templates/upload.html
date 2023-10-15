@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/static/styles.css">
 </head>
 <body>
+    
     <div class="container">
         <div class="header">
             <h1>Subir y Procesar Imagen</h1>
@@ -91,6 +92,11 @@
     </a>
     
      
+    <div id="loader" class="hidden">
+        <svg viewBox="25 25 50 50">
+            <circle r="20" cy="50" cx="50"></circle>
+        </svg>
+    </div>
     
 </body>
 <script>
@@ -130,5 +136,18 @@
     document.getElementById("add-item-button").addEventListener("click", function () {
         document.getElementById("file").click(); // Simula un clic en el elemento de entrada de archivo
     });
+
+    // Agrega un evento al botón "Convertir"
+document.querySelector(".btn").addEventListener("click", function () {
+    // Muestra el cargador al hacer clic en el botón "Convertir"
+    document.getElementById("loader").classList.remove("hidden");
+
+    // Simula un tiempo de espera (reemplaza esto con tu lógica de conversión)
+    setTimeout(function () {
+        // Oculta el cargador cuando la conversión ha terminado
+        document.getElementById("loader").classList.add("hidden");
+    }, 5000); // Reemplaza 5000 con el tiempo real de conversión
+});
+
 </script>
 </html>
