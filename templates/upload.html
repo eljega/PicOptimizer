@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark-mode">
+<html lang="es">
 <head>
-    <title>Subir y Procesar Imagen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PicOptimizer - Sube y Procesa Imágenes: Convierte imágenes de PNG a JPEG, WebP o viceversa y reduce su tamaño de forma rápida y sencilla. ¡Optimiza tus imágenes en línea!">
+    <title>PicOptimizer - Sube y Procesa Imágenes</title>
     <link rel="stylesheet" type="text/css" href="/static/styles.css">
 </head>
 <body>
-    
     <div class="container">
-        <div class="header">
-            <h1>Subir y Procesar Imagen</h1>
-        </div>
+        <header>
+            <h1>Sube y Procesa Imágenes con PicOptimizer</h1>
+        </header>
         <div class="content">
             <form method="POST" enctype="multipart/form-data">
                 <div class="upload-container">
@@ -17,7 +19,6 @@
                         <span class="button__text">Sube tu imagen</span>
                         <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                     </button>
-                    
                     <input type="file" name="file" id="file" class="file-input">
                 </div>    
                 <div class="options-container">
@@ -34,8 +35,6 @@
                         <input type="number" name="quality" id="quality" class="number-input" min="0" max="100" value="70">
                     </div>
                     <div class="button-container">
-                        
-                        
                         <button type="submit" class="btn">
                             <svg type="submit" height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
                                 <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
@@ -52,7 +51,7 @@
             </form>
         </div>
         <div class="preview-image-container hidden">
-            <img id="preview-image">
+            <img id="preview-image" alt="Vista previa de la imagen">
         </div>
         
         {% if original_image %}   
@@ -91,7 +90,6 @@
         </svg>
     </a>
     
-     
     <div id="loader" class="hidden">
         <svg viewBox="25 25 50 50">
             <circle r="20" cy="50" cx="50"></circle>
