@@ -49,6 +49,12 @@ def upload_and_process_image():
             if output_format == 'jpeg':
                 # Si el formato de salida es JPEG, convierte a modo RGB antes de guardar
                 img = img.convert('RGB')
+                print(output_format)
+            
+            if output_format == 'png':
+                img.save(output_buffer, output_format, optimize=True)
+            else:
+                img.save(output_buffer, output_format, quality=quality)
 
             img.save(output_buffer, output_format, quality=quality)
 
