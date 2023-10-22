@@ -177,7 +177,7 @@ img {
 
 @media (max-width: 767px){
   .original-image, .converted-image {
-    padding: 58px;
+    padding: 45px;
 }
 }
 
