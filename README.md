@@ -44,7 +44,7 @@ A continuación, se muestran algunas capturas de pantalla de la aplicación:
 
 Si deseas contribuir a este proyecto, siéntete libre de hacer un fork y abrir un pull request. También puedes informar sobre problemas y sugerir mejoras en la sección de "Issues".
 
-## Autor
+## Autor Eljega
 
 - [Tu Nombre](https://github.com/eljega)
 
