@@ -29,17 +29,17 @@ def upload_and_process_image():
         
 
         if file:
-            # Cargar la imagen original inmediatamente al recibirla
+            
             img = Image.open(file)
 
-            # Convertir la imagen a modo RGBA para manejar la transparencia
+           
             img = img.convert('RGBA')
 
             original_buffer = io.BytesIO()
             img.save(original_buffer, format='PNG')
             original_image = base64.b64encode(original_buffer.getvalue()).decode()
 
-            # Procesar opciones del formulario
+           
             output_format = request.form['output_format']
             quality = int(request.form['quality'])
 
@@ -47,7 +47,7 @@ def upload_and_process_image():
             output_buffer = io.BytesIO()
 
             if output_format == 'jpeg':
-                # Si el formato de salida es JPEG, convierte a modo RGB antes de guardar
+                
                 img = img.convert('RGB')
                 print(output_format)
             
@@ -58,15 +58,15 @@ def upload_and_process_image():
 
             img.save(output_buffer, output_format, quality=quality)
 
-            # Convertir la imagen a base64 para mostrarla en la página
+           
             processed_image = base64.b64encode(output_buffer.getvalue()).decode()
             processed_format = output_format
 
-            # Calcular tamaños de las imágenes
+          
             original_size = original_buffer.tell()
             converted_size = output_buffer.tell()
 
-            # Generar un enlace de descarga
+           
             download_url = f"data:image/{output_format};base64,{processed_image}"
 
     return render_template('upload.html', original_image=original_image, processed_image=processed_image, processed_format=processed_format, download_url=download_url, original_size=original_size, converted_size=converted_size)
