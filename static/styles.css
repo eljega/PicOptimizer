@@ -1,4 +1,4 @@
-/* styles.css */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -132,7 +132,7 @@ h2, p {
 
 
 .download-button {
-    text-decoration: none; /* Elimina la línea subrayada */
+    text-decoration: none; 
 }
 
 .convert-button:hover,
@@ -390,7 +390,7 @@ img {
   .social-links {
     position: fixed;
     bottom: 0;
-    left: 20px; /* Ajusta el valor para separar los botones horizontalmente */
+    left: 20px; 
     display: flex;
     justify-content: flex-start;
     padding: 10px;
@@ -398,7 +398,7 @@ img {
 }
 
 .social-links .social-link {
-    margin-right: 10px; /* Espacio entre los botones */
+    margin-right: 10px; 
 }
 
 .social-link img {
@@ -413,8 +413,8 @@ img {
 
 
 .social-links img:hover {
-    border-color: #6a11ae; /* Cambio de color del borde al pasar el mouse (azul en este caso) */
-    transform: scale(1.1); /* Aumento del tamaño al pasar el mouse */
+    border-color: #6a11ae;
+    transform: scale(1.1); 
 }
 
 .copyright {
