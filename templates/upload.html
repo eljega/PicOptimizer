@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3T30CEDREN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -79,7 +79,7 @@
         </div>
         {% endif %} 
     </div>
-    <!-- Sección de redes sociales en la parte inferior izquierda -->
+
     <div class="social-links">
         <a class="social-link github" href="https://github.com/eljega" target="_blank">
             <img src="/static/imagenes/github.webp" alt="GitHub">
@@ -108,7 +108,7 @@
     
 </body>
 <script>
-    // Agrega el valor de output_format como una variable JavaScript
+    
     var outputFormat = "{{ output_format }}";
 
     document.getElementById("file").addEventListener("change", function() {
@@ -129,7 +129,7 @@
     });
 
     document.getElementById("download-button").addEventListener("click", function(e) {
-        e.preventDefault(); // Evita la acción predeterminada del botón
+        e.preventDefault(); 
 
         // Simular un enlace de descarga
         var downloadLink = document.createElement("a");
@@ -142,19 +142,19 @@
     });
 
     document.getElementById("add-item-button").addEventListener("click", function () {
-        document.getElementById("file").click(); // Simula un clic en el elemento de entrada de archivo
+        document.getElementById("file").click(); 
     });
 
-    // Agrega un evento al botón "Convertir"
+    
 document.querySelector(".btn").addEventListener("click", function () {
-    // Muestra el cargador al hacer clic en el botón "Convertir"
+    
     document.getElementById("loader").classList.remove("hidden");
 
-    // Simula un tiempo de espera (reemplaza esto con tu lógica de conversión)
+   
     setTimeout(function () {
-        // Oculta el cargador cuando la conversión ha terminado
+      
         document.getElementById("loader").classList.add("hidden");
-    }, 5000); // Reemplaza 5000 con el tiempo real de conversión
+    }, 5000); 
 });
 
 </script>
