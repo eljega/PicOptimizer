@@ -56,8 +56,6 @@ def upload_and_process_image():
             else:
                 img.save(output_buffer, output_format, quality=quality)
 
-            img.save(output_buffer, output_format, quality=quality)
-
            
             processed_image = base64.b64encode(output_buffer.getvalue()).decode()
             processed_format = output_format
