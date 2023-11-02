@@ -67,17 +67,22 @@
         {% if original_image %}   
         <div class="image-preview">
             <div class="original-image">
-                <h2>Imagen Original:</h2>
+                <h2>Original:</h2>
                 <img src="data:image/png;base64,{{ original_image }}" alt="Imagen Original">
-                <p>Tamaño: {{ original_size }} bytes</p>
+                <p>Tamaño: {{ original_size }} KB</p>
             </div>
+            
             <div class="converted-image">
-                <h2>Imagen Convertida:</h2>
+                <h2>Convertida:</h2>
                 <img src="{{ download_url }}" alt="Imagen Convertida">
-                <p>Tamaño: {{ converted_size }} bytes</p>
+                <p>Tamaño: {{ converted_size }} KB</p>
+                {% if reduction_percentage %}
+                    <p>Reducción: {{ reduction_percentage }}%</p>
+                {% endif %}
             </div>
+            
         </div>
-        {% endif %} 
+        {% endif %}
     </div>
 
     <div class="social-links">
