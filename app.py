@@ -17,8 +17,9 @@ def upload_and_process_image():
     processed_image = None
     processed_format = None
     download_url = None
-    original_size = None
-    converted_size = None
+    original_size_kb = None
+    converted_size_kb = None
+    reduction_percentage = None
 
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -26,20 +27,23 @@ def upload_and_process_image():
 
         file = request.files['file']
 
-        
-
         if file:
-            
-            img = Image.open(file)
+            # Obtener el tamaño original del archivo desde el objeto 'request' de Flask
+            original_size = request.content_length
 
-           
+            # Cargar la imagen directamente en memoria
+            img_stream = io.BytesIO(file.read())
+            img = Image.open(img_stream)
+            
+
+            # Convertir la imagen a modo RGBA para manejar la transparencia
             img = img.convert('RGBA')
 
             original_buffer = io.BytesIO()
             img.save(original_buffer, format='PNG')
             original_image = base64.b64encode(original_buffer.getvalue()).decode()
 
-           
+            # Procesar opciones del formulario
             output_format = request.form['output_format']
             quality = int(request.form['quality'])
 
@@ -47,27 +51,31 @@ def upload_and_process_image():
             output_buffer = io.BytesIO()
 
             if output_format == 'jpeg':
-                
+                # Si el formato de salida es JPEG, convierte a modo RGB antes de guardar
                 img = img.convert('RGB')
-                print(output_format)
             
             if output_format == 'png':
                 img.save(output_buffer, output_format, optimize=True)
             else:
                 img.save(output_buffer, output_format, quality=quality)
 
-           
+            # Convertir la imagen a base64 para mostrarla en la página
             processed_image = base64.b64encode(output_buffer.getvalue()).decode()
             processed_format = output_format
 
-          
-            original_size = original_buffer.tell()
+            # Calcular el tamaño de la imagen procesada
             converted_size = output_buffer.tell()
 
-           
-            download_url = f"data:image/{output_format};base64,{processed_image}"
+            original_size_kb = round(original_size / 1024, 2)  # Convertir a KB
+            converted_size_kb = round(converted_size / 1024, 2)  # Convertir a KB
 
-    return render_template('upload.html', original_image=original_image, processed_image=processed_image, processed_format=processed_format, download_url=download_url, original_size=original_size, converted_size=converted_size)
+            if original_size > 0:  # Evitar división por cero
+                reduction_percentage = round(((original_size - converted_size) / original_size) * 100, 2)
+
+            # Generar un enlace de descarga
+            download_url = f"data:image/{output_format};base64,{processed_image}"
+    
+    return render_template('upload.html', original_image=original_image, processed_image=processed_image, processed_format=processed_format, download_url=download_url, original_size=original_size_kb, converted_size=converted_size_kb, reduction_percentage=reduction_percentage)
 
 
 port = int(os.environ.get('PORT', 8080))
